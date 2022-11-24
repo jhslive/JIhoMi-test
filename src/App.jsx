@@ -66,11 +66,6 @@ function App() {
       switch(downloadCount)
         {
            case 0: name = "정지호"; break;
-          ....
-          ....
-        }
-          switch(downloadCount)
-        {
            case 1: name = "최성준"; break;
            case 2: name = "최태원"; break;
            case 3: name = "김동욱"; break;
