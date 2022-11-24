@@ -48,13 +48,13 @@ function App() {
   }
 
   function downLoadEntryPrice() {
-    downloadCount = 10;
+    downloadCount = 5;
     const interval = setInterval(() => {
       downloadCount--;
       
       var entryPriceCount = (Number(entryPrice)+(downloadCount*0.5)).toFixed(1);
       var entryPriceFilename ;
-      if(downloadCount===9)
+      if(downloadCount===4)
       {
         entryPriceFilename = entryPrice       
       }
@@ -84,13 +84,13 @@ function App() {
   }
 
   function downLoadClosingPrice() {
-    downloadCount = 10;
+    downloadCount = 5;
     const interval = setInterval(() => {
       downloadCount--;
       
       var closingPriceCount = (Number(closingPrice)+(downloadCount*0.5)).toFixed(1);
       var closingPriceFilename ;
-      if(downloadCount===9)
+      if(downloadCount===4)
       {
         closingPriceFilename = closingPrice       
       }
