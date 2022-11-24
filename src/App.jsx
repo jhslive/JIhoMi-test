@@ -63,8 +63,7 @@ function App() {
         entryPriceFilename = (Number(entryPrice)+((downloadCount+1)*0.5)).toFixed(1);
       }
 
-      const name =
-           switch(downloadCount)
+      switch(downloadCount)
         {
            case 0: name = "정지호"; break;
           ....
