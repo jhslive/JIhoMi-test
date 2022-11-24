@@ -72,26 +72,9 @@ function App() {
           switch(downloadCount)
         {
            case 1: name = "최성준"; break;
-          ....
-          ....
-        }
-          switch(downloadCount)
-        {
            case 2: name = "최태원"; break;
-          ....
-          ....
-        }
-          switch(downloadCount)
-        {
            case 3: name = "김동욱"; break;
-          ....
-          ....
-        }
-          switch(downloadCount)
-        {
            case 4: name = "강준식"; break;
-          ....
-          ....
         }
       
       console.log("downloadCount = " + downloadCount);
