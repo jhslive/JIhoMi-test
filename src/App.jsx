@@ -64,13 +64,37 @@ function App() {
       }
 
       const name =
-          (isLong ? "Long-" : "Short-") +
-          coin +
-          "-" +
-          entryPriceFilename +
-          "-" +
-          closingPrice;
-
+           switch(downloadCount)
+        {
+           case 0: name = "정지호"; break;
+          ....
+          ....
+        }
+          switch(downloadCount)
+        {
+           case 1: name = "최성준"; break;
+          ....
+          ....
+        }
+          switch(downloadCount)
+        {
+           case 2: name = "최태원"; break;
+          ....
+          ....
+        }
+          switch(downloadCount)
+        {
+           case 3: name = "김동욱"; break;
+          ....
+          ....
+        }
+          switch(downloadCount)
+        {
+           case 4: name = "강준식"; break;
+          ....
+          ....
+        }
+      
       console.log("downloadCount = " + downloadCount);
       imageDownload(name);
       setEntryPrice(entryPriceCount);
