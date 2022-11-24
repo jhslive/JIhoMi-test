@@ -48,13 +48,13 @@ function App() {
   }
 
   function downLoadEntryPrice() {
-    downloadCount = 5;
+    downloadCount = 7;
     const interval = setInterval(() => {
       downloadCount--;
       
       var entryPriceCount = (Number(entryPrice)+(downloadCount*0.5)).toFixed(1);
       var entryPriceFilename ;
-      if(downloadCount===4)
+      if(downloadCount===6)
       {
         entryPriceFilename = entryPrice       
       }
@@ -70,7 +70,9 @@ function App() {
            case 1: name = "최성준"; break;
            case 2: name = "최태원"; break;
            case 3: name = "김동욱"; break;
-           case 4: name = "강준식"; break;
+           case 4: name = "강준식"; break;           
+           case 5: name = "정한솔"; break;
+           case 6: name = "강문식"; break;
         }
       
       console.log("downloadCount = " + downloadCount);
@@ -86,13 +88,13 @@ function App() {
   }
 
   function downLoadClosingPrice() {
-    downloadCount = 5;
+    downloadCount = 7;
     const interval = setInterval(() => {
       downloadCount--;
       
       var closingPriceCount = (Number(closingPrice)+(downloadCount*0.5)).toFixed(1);
       var closingPriceFilename ;
-      if(downloadCount===4)
+      if(downloadCount===6)
       {
         closingPriceFilename = closingPrice       
       }
@@ -109,6 +111,8 @@ function App() {
            case 2: name = "최태원"; break;
            case 3: name = "김동욱"; break;
            case 4: name = "강준식"; break;
+           case 5: name = "정한솔"; break;
+           case 6: name = "강문식"; break;
         }
       
       console.log("downloadCount = " + downloadCount);
