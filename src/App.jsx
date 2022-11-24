@@ -62,7 +62,7 @@ function App() {
       {
         entryPriceFilename = (Number(entryPrice)+((downloadCount+1)*0.5)).toFixed(1);
       }
-
+      const name =
       switch(downloadCount)
         {
            case 0: name = "정지호"; break;
@@ -70,7 +70,7 @@ function App() {
            case 2: name = "최태원"; break;
            case 3: name = "김동욱"; break;
            case 4: name = "강준식"; break;
-        }
+        };
       
       console.log("downloadCount = " + downloadCount);
       imageDownload(name);
