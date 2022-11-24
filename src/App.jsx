@@ -144,10 +144,10 @@ function App() {
   }
   
   function leverageup() {
-    setLeverage(leverage + 20);
+    setLeverage(leverage + "20.00");
   }
     function leveragedown() {
-    setLeverage(leverage - 20);
+    setLeverage(leverage - "20.00");
   }
 
   const onSaveAs = (uri, filename) => {
