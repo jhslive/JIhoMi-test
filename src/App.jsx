@@ -212,10 +212,6 @@ function App() {
       <br />
       <br />
       <button onClick={up}>숫자 위로</button>    
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <button onClick={leverageup}>레버리지 업</button> 
       <br />
       <br />
       <button onClick={left}>숫자 좌로</button>
@@ -224,10 +220,6 @@ function App() {
       <br />
       <br />
       <button onClick={down}>숫자 아래로</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={leveragedown}>레버리지 다운</button>
       <br />
       <br />
       <button onClick={downLoadEntryPrice}>다운로드(매수)</button>
@@ -235,6 +227,9 @@ function App() {
       <button onClick={downLoadClosingPrice}>다운로드(매도)</button>
       <br />
       <br />
+      <button onClick={leverageup}>레버리지 업</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <button onClick={leveragedown}>레버리지 다운</button>    
       <div
         id="image"
         style={{
