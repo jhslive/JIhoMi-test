@@ -256,7 +256,7 @@ function App() {
 
             }}
           >
-            {coin}
+            {coin} Perpetual
           </div>
          
           <div
