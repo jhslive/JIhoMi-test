@@ -15,13 +15,13 @@ function App() {
   const [numsLoc, setNumsLoc] = useState([227, 570, 570]);
   const [numLocLR, setNumLocLR] = useState(1000);
   const [leverage, setLeverage] = useState(30);
-  const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
+  const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}.setInterval(date, 1000);));
   const [result, setResult] = useState(
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
 
-     setInterval(date, 1000);
+
   
   var downloadCount = 0;
     
