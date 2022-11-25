@@ -21,6 +21,8 @@ function App() {
   );
   const [tangu, setTangu] = useState(false);
 
+     setInterval(date, 1000);
+  
   var downloadCount = 0;
     
 
