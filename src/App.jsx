@@ -5,30 +5,21 @@ import bgShort from "./bg_short.png";
 import tanguPic from "./tangu.png";
 import html2canvas from "html2canvas";
 
-
-
 function App() {
   const [coin, setCoin] = useState("BTCUSDT");
-  const [entryPrice, setEntryPrice] = useState("16700");
-  const [closingPrice, setClosingPrice] = useState("16750");
+  const [entryPrice, setEntryPrice] = useState("20868");
+  const [closingPrice, setClosingPrice] = useState("20681");
   const [isLong, setIsLong] = useState(true);
   const [numsLoc, setNumsLoc] = useState([227, 570, 570]);
   const [numLocLR, setNumLocLR] = useState(1000);
-  const [leverage, setLeverage] = useState(30);
+  const [leverage, setLeverage] = useState("30.00");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
-                          
   const [result, setResult] = useState(
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
 
-
-  
-  var downloadCount = 0;
-    
-
   useEffect(() => {
-
     const calculated = (
       (closingPrice / entryPrice - 1) *
       leverage *
@@ -39,97 +30,23 @@ function App() {
     } else {
       setResult(calculated);
     }
-
   }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
-  function imageDownload(name)
-  {
+  function downLoad() {
+    console.log("download started!");
+    const name =
+      (isLong ? "Long-" : "Short-") +
+      coin +
+      "-" +
+      entryPrice +
+      "-" +
+      closingPrice;
+
     const image = document.getElementById("image");
     html2canvas(image).then((canvas) => {
       onSaveAs(canvas.toDataURL("image/png"), name + ".png");
     });
   }
-
-  function downLoadEntryPrice() {
-    downloadCount = 7;
-    const interval = setInterval(() => {
-      downloadCount--;
-      
-      var entryPriceCount = (Number(entryPrice)+(downloadCount*0.2)).toFixed(1);
-      var entryPriceFilename ;
-      if(downloadCount===6)
-      {
-        entryPriceFilename = entryPrice       
-      }
-      else
-      {
-        entryPriceFilename = (Number(entryPrice)+((downloadCount+1)*0.2)).toFixed(1);
-      }
-      
-      var name = "";
-         switch(downloadCount)
-        {
-           case 0: name = "정지호"; break;
-           case 1: name = "최성준"; break;
-           case 2: name = "최태원"; break;
-           case 3: name = "김동욱"; break;
-           case 4: name = "강준식"; break;           
-           case 5: name = "정한솔"; break;
-           case 6: name = "강문식"; break;
-        }
-      
-      console.log("downloadCount = " + downloadCount);
-      imageDownload(name);
-      setEntryPrice(entryPriceCount);
-
-      if(downloadCount===0)      
-      {
-        clearInterval(interval);    
-        setEntryPrice(entryPrice);
-      }
-    }, 1000);    
-  }
-
-  function downLoadClosingPrice() {
-    downloadCount = 7;
-    const interval = setInterval(() => {
-      downloadCount--;
-      
-      var closingPriceCount = (Number(closingPrice)+(downloadCount*0.2)).toFixed(1);
-      var closingPriceFilename ;
-      if(downloadCount===6)
-      {
-        closingPriceFilename = closingPrice       
-      }
-      else
-      {
-        closingPriceFilename = (Number(closingPrice)+((downloadCount+1)*0.2)).toFixed(1);
-      }
-
-      var name = "";
-         switch(downloadCount)
-        {
-           case 0: name = "정지호"; break;
-           case 1: name = "최성준"; break;
-           case 2: name = "최태원"; break;
-           case 3: name = "김동욱"; break;
-           case 4: name = "강준식"; break;
-           case 5: name = "정한솔"; break;
-           case 6: name = "강문식"; break;
-        }
-      
-      console.log("downloadCount = " + downloadCount);
-      imageDownload(name);
-      setClosingPrice(closingPriceCount);
-
-      if(downloadCount===0)      
-      {
-        clearInterval(interval);    
-        setClosingPrice(closingPrice);
-      }
-    }, 1000);    
-  }
-
 
   function down() {
     const one = numsLoc[0] + 1;
@@ -149,13 +66,7 @@ function App() {
   function right() {
     setNumLocLR(numLocLR + 1);
   }
-  
-  function leverageup() {
-    setLeverage(leverage + 20.00);
-  }
-    function leveragedown() {
-    setLeverage(leverage - 20.00);
-  }
+
 
   const onSaveAs = (uri, filename) => {
     var link = document.createElement("a");
@@ -214,12 +125,7 @@ function App() {
       </span>  
       <br />
       <br />
-      <button onClick={leverageup}>레버리지 업</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-      <button onClick={leveragedown}>레버리지 다운</button>
-      <br />
-      <br />
-      <button onClick={up}>숫자 위로</button>    
+      <button onClick={up}>숫자 위로</button>
       <br />
       <br />
       <button onClick={left}>숫자 좌로</button>
@@ -230,11 +136,9 @@ function App() {
       <button onClick={down}>숫자 아래로</button>
       <br />
       <br />
-      <button onClick={downLoadEntryPrice}>다운로드(매수)</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={downLoadClosingPrice}>다운로드(매도)</button>
+      <button onClick={downLoad}>다운로드</button>
       <br />
-      <br />    
+      <br />
       <div
         id="image"
         style={{
@@ -274,7 +178,7 @@ function App() {
 
             }}
           >
-            {leverage.toFixed(2)}X
+            {leverage}X
           </div>
           <div
             style={{
