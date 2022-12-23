@@ -178,7 +178,7 @@ function App() {
 
             }}
           >
-            {leverage.toFixed(2)}X
+            {(number(leverage)).toFixed(2)}X
           </div>
           <div
             style={{
