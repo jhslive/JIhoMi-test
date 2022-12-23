@@ -178,7 +178,7 @@ function App() {
 
             }}
           >
-            {leverage}X
+            {leverage.toString(2)}X
           </div>
           <div
             style={{
