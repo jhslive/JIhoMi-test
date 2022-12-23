@@ -178,7 +178,7 @@ function App() {
 
             }}
           >
-            {(number(leverage)).toFixed(2)}X
+            {(Number(leverage)).toString(2).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}X
           </div>
           <div
             style={{
