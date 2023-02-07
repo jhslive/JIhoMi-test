@@ -6,24 +6,22 @@ import tanguPic from "./tangu.png";
 import html2canvas from "html2canvas";
 
 function App() {
-  const [coin, setCoin] = useState("엘프");
-  const [price, setprice] = useState("ELF");
-  const [won, setwon] = useState("KRW");
-  const [askPrice, setaskPrice] = useState("174"); 
-  const [bidPrice, setbidPrice] = useState("186");
-  const [maxPrice, setmaxPrice] = useState("100000");
-  const [isLong, setIsLong] = useState(true); //eslint-disable-line no-unused-vars
+  const [coin, setCoin] = useState("BTCUSDT");
+  const [entryPrice, setEntryPrice] = useState("20868");
+  const [closingPrice, setClosingPrice] = useState("20681");
+  const [isLong, setIsLong] = useState(true);
   const [numsLoc, setNumsLoc] = useState([0, 0, 0]);
   const [numLocLR, setNumLocLR] = useState(0);
-  const [leverage, setLeverage] = useState(1); //eslint-disable-line no-unused-vars
+  const [leverage, setLeverage] = useState("30");
+  const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
-    ((bidPrice / askPrice - 1) * 75 * 100).toFixed(2)
+    ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
 
   useEffect(() => {
     const calculated = (
-      (bidPrice / askPrice - 1) *
+      (closingPrice / entryPrice - 1) *
       leverage *
       100
     ).toFixed(2);
@@ -32,7 +30,7 @@ function App() {
     } else {
       setResult(calculated);
     }
-  }, [askPrice, bidPrice, coin, isLong, leverage]);
+  }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
   function downLoad() {
     console.log("download started!");
@@ -40,9 +38,9 @@ function App() {
       (isLong ? "Long-" : "Short-") +
       coin +
       "-" +
-      askPrice +
+      entryPrice +
       "-" +
-      bidPrice;
+      closingPrice;
 
     const image = document.getElementById("image");
     html2canvas(image).then((canvas) => {
@@ -63,10 +61,10 @@ function App() {
     setNumsLoc([one, two, three]);
   }
   function left() {
-    setNumLocLR(numLocLR + 1);
+    setNumLocLR(numLocLR - 1);
   }
   function right() {
-    setNumLocLR(numLocLR - 1);
+    setNumLocLR(numLocLR + 1);
   }
 
 
@@ -82,51 +80,60 @@ function App() {
   return (
     <div className="App">
       <span>
+        롱(체크)/숏(미체크) &nbsp;
+        <input
+          type="checkbox"
+          checked={isLong}
+          onChange={(e) => setIsLong(!isLong)}
+        />
+      </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span>
         코인종류 &nbsp;
         <input value={coin} onChange={(e) => setCoin(e.target.value)} />
       </span>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <span>
-        코인이름 &nbsp;
-        <input value={price} onChange={(e) =>setprice(e.target.value)} />
+        Leverage &nbsp;
+        <input value={leverage} onChange={(e) => setLeverage(e.target.value)} />
       </span>
-    &nbsp;&nbsp;&nbsp;&nbsp;
       <br />
       <br />
       <span>
         매수금액 &nbsp;
         <input
-          value={maxPrice}
-          onChange={(e) => setmaxPrice(e.target.value)}
+          value={entryPrice}
+          onChange={(e) => setEntryPrice(e.target.value)}
         />
       </span>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <span>
         매도금액 &nbsp;
         <input
-          value={bidPrice}
-          onChange={(e) => setbidPrice(e.target.value)}
+          value={closingPrice}
+          onChange={(e) => setClosingPrice(e.target.value)}
         />
       </span>
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      <br />
+      <br />
       <span>
-        평균단가 &nbsp;
+        날짜시간 &nbsp;
         <input
-          value={askPrice}
-          onChange={(e) => setaskPrice(e.target.value)}
-        />
-      </span>
+         value={date}
+         onChange={(e) => setdate(e.target.value)}
+         />
+      </span>  
       <br />
       <br />
-      <button onClick={up}>보유수량 숫자 위로</button>
+      <button onClick={up}>이름 위로</button>
       <br />
       <br />
-      <button onClick={left}>보유수량 숫자 좌로</button>
+      <button onClick={left}>이름 좌로</button>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={right}>보유수량 숫자 우로</button>
+      <button onClick={right}>이름 우로</button>
       <br />
       <br />
-      <button onClick={down}>보유수량 숫자 아래로</button>
+      <button onClick={down}>이름 아래로</button>
       <br />
       <br />
       <button onClick={downLoad}>다운로드</button>
@@ -137,8 +144,8 @@ function App() {
         style={{
           backgroundImage: `url(${tangu ? tanguPic : (isLong ? bgLong : bgShort)})`,
           backgroundSize: "cover",
-          height: "419px",
-          width: "916px",
+          height: "840px",
+          width: "1346px",
           margin: "0 auto",
           position: "relative",
         }}
@@ -147,159 +154,73 @@ function App() {
           <div
             style={{
               position: "absolute",
-              left: "27px",
-              top: "29px",
-              fontSize:"32.5px",
-              color: "rgb(211,212,214)",
+              left: numLocLR + 85 + "px",
+              top: numsLoc[0] + 160 + "px",
+              fontSize:"42px",
+              color: "rgb(254,254,254)",
               fontFamily: "HarmonyOS Sans",
-              fontWeight: "600",
-
-            }}
-          >
-            {coin}
-          </div>
-
-                    <div
-            style={{
-              position: "absolute",
-              right: numLocLR + 556 + "px",
-              top: numsLoc[1] + 174 + "px",
-              fontSize: "35.5px",
-              color: "rgb(211,212,214)",
-              fontFamily: "Roboto_Regular",
               fontWeight: "500",
 
             }}
           >
-            {(Number(maxPrice/askPrice - (maxPrice/askPrice*0.0005)).toFixed(6)).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')} 
-           </div>          
-                    <div
-            style={{
-              position: "absolute",
-              right: "120px",
-              top: "174px",
-              fontSize: "35.5px",
-              color: "rgb(211,212,214)",
-              fontFamily: "Roboto_Regular",
-              fontWeight: "500",
-
-            }}
-          >
-            {askPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            {coin} Perpetual
           </div>
          
-                <div
-            style={{
-              position: "absolute",
-              left: "27px",
-              top: "72px",
-              fontSize: "33.5px",
-              color: "RGB(211,212,214)",
-              fontFamily: "HarmonyOS Sans",
-              fontWeight: "700",
-
-            }}
-          >
-            ({price})
-          </div>
-          
           <div
             style={{
               position: "absolute",
-              right: "494px",
-              top: "176px",
-              fontSize: "35px",
-              color: "rgb(211,212,214)",
+              left: "200px",
+              top: "227px",
+              fontSize: "28px",
+              color: "RGB(126,126,126)",
               fontFamily: "HarmonyOS Sans",
-              fontWeight: "1000",
-
-            }}
-          >
-            {price}
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "16px",
-              top: "176px",
-              fontSize: "35px",
-              color: "rgb(211,212,214)",
-              fontFamily: "HarmonyOS Sans",
-              fontWeight: "1000",
-
-            }}
-          >
-            {won}
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "496px",
-              top: "295px",
-              fontSize: "35px",
-              color: "rgb(211,212,214)",
-              fontFamily: "HarmonyOS Sans",
-              fontWeight: "1000",
-
-            }}
-          >
-            {won}
-          </div>
-                   <div
-            style={{
-              position: "absolute",
-              right: "16px",
-              top: "295px",
-              fontSize: "35px",
-              color: "rgb(211,212,214)",
-              fontFamily: "HarmonyOS Sans",
-              fontWeight: "1000",
-
-            }}
-          >
-            {won}
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "603px",
-              top: "293px",
-              fontSize: "35.5px",
-              color: "rgb(211,212,214)",
-              fontFamily: "Roboto_Regular",
               fontWeight: "500",
 
             }}
           >
-           {(Number((((maxPrice/askPrice)-(maxPrice/askPrice)*0.0005)*bidPrice) -(maxPrice/askPrice)*bidPrice*0.0005).toFixed(0)).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            {Number(leverage).toFixed(2)}X
           </div>
           <div
             style={{
               position: "absolute",
-              right: "120px",
-              top: "293px",
-              fontSize: "35.5px",
-              color: "rgb(211,212,214)",
-              fontFamily: "Roboto_Regular",
+              left:"85px",
+              top: "570px",
+              fontSize: "30px",
+              color: "white",
+              fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
 
             }}
           >
-           {maxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            ₮ {(Number(entryPrice)).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
           </div>
           <div
             style={{
               position: "absolute",
-              right: "16px",
-              top: "16px",
-              fontSize: "35.5px",
-              color: "rgb(208,69,42)",
-              fontFamily: "Roboto_Regular",
+              left: "270px",
+              top: "570px",
+              fontSize: "30px",
+              color: "white",
+              fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
 
             }}
           >
-            {(Number(((((maxPrice/askPrice)-(maxPrice/askPrice)*0.0005)*bidPrice) -(maxPrice/askPrice)*bidPrice*0.0005)-maxPrice).toFixed(0)).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+            ₮ {(Number(closingPrice)).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              left: "235px",
+              top: "731px",
+              fontSize: "28px",
+              color: "white",
+              fontFamily: "HarmonyOS Sans",
+              fontWeight: "500",
+
+            }}
+          >
+            {date}
           </div>
            <div
             style={{
@@ -309,17 +230,36 @@ function App() {
                 <div
               style={{
                 position: "absolute",
-                right: "16px",
-                top: "69px",
-                fontSize: "35.5px",
-                color: "rgb(208,69,42)",
-                fontFamily: "Roboto_Regular",
-                fontWeight: "500",
+                left: "80px",
+                top: "345px",
+                fontSize: "125px",
+                color: "rgb(4, 191, 136)",
+                fontFamily: "HarmonyOS Sans",
+                fontWeight: "700",
 
               }}
             >
-              {result}%
-
+              {result > 0 ? (
+                <span
+                  style={{
+                    fontSize: "125px",
+                    fontWeight: "700",
+                  }}
+                >
+                  +
+                </span>
+              ) : (
+              ""
+              )}
+              {result}
+              <span
+                style={{
+                    fontSize: "125px",
+                    fontWeight: "700",
+                }}
+              >
+                %
+              </span>
             </div>
           </div> 
       </div>
