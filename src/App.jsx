@@ -265,9 +265,6 @@ function App() {
       </div>
       <br />
       <br />
-      <div>
-        <i>Made By</i> <b>Jung Ji </b><span onClick={() => setTangu(!tangu)}><b>Ho</b></span>
-      </div>
     </div>
   );
 }
