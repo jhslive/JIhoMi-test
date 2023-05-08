@@ -20,6 +20,7 @@ function App() {
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
+  const [fisrt, setfirst] = useState("console.log(phone.charAT(0,1,2))")
   
   useEffect(() => {
     const calculated = (
@@ -247,7 +248,7 @@ function App() {
 
             }}
           >
-           {phone}
+           {first}
           </div>
           <div
             style={{
