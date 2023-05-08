@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-            {console.log(phone.charAT(1,2,3))}
+            {(Number(console.log(phone.charAT(1,2,3))))}
           </div>
           <div
             style={{
