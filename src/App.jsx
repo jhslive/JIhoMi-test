@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-            {console.log(phone.CharAt(0))}
+            console.log(phone.CharAt(0));
           </div>
           <div
             style={{
