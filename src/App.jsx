@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-            {(console.log(phone.charAT(1,2,3)))}
+            {phone}
           </div>
           <div
             style={{
