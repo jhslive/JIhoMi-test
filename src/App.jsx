@@ -249,7 +249,7 @@ function App() {
 
             }}
           >
-            {console.log(String.CharAt(0))}
+            {console.log(String.CharAt(0));}
           </div>
           <div
             style={{
