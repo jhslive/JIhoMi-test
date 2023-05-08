@@ -20,7 +20,7 @@ function App() {
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
-  const [cofo, setCofo] = (console.log(phone.charAt(0,1,2)));
+  const cofo = (console.log(phone.charAt(0,1,2)));
   
   useEffect(() => {
     const calculated = (
