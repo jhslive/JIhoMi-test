@@ -13,6 +13,8 @@ function App() {
   const [numsLoc, setNumsLoc] = useState([0, 0, 0]);
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
+  const [phone, setphone] = useState("1012341234");
+  const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
@@ -96,6 +98,17 @@ function App() {
       <span>
         Leverage &nbsp;
         <input value={leverage} onChange={(e) => setLeverage(e.target.value)} />
+      </span>
+      <br />
+      <br />
+          <span>
+        전화번호 &nbsp;
+        <input value={phone} onChange={(e) => setphone(e.target.value)} />
+      </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+        <span>
+        초대코드 &nbsp;
+        <input value={code} onChange={(e) => setcode(e.target.value)} />
       </span>
       <br />
       <br />
@@ -221,6 +234,34 @@ function App() {
             }}
           >
             {date}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              left: "235px",
+              top: "231px",
+              fontSize: "28px",
+              color: "white",
+              fontFamily: "HarmonyOS Sans",
+              fontWeight: "500",
+
+            }}
+          >
+            {phone}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              left: "1100px",
+              top: "800px",
+              fontSize: "28px",
+              color: "white",
+              fontFamily: "HarmonyOS Sans",
+              fontWeight: "500",
+
+            }}
+          >
+            {code}
           </div>
            <div
             style={{
