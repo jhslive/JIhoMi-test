@@ -20,8 +20,6 @@ function App() {
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
-
-  let String = [phone]
   
   useEffect(() => {
     const calculated = (
@@ -249,7 +247,7 @@ function App() {
 
             }}
           >
-            {console.log(String.CharAt(0));}
+            {console.log(phone.CharAt(0))}
           </div>
           <div
             style={{
