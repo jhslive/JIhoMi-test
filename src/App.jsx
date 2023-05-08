@@ -13,7 +13,7 @@ function App() {
   const [numsLoc, setNumsLoc] = useState([0, 0, 0]);
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
-  const [phone, setphone] = useState("1012341234");
+  const [phone, setphone] = useState("01012341234");
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-            {phone}
+            {console.log(phone.charAT(1,2,3,***,7,8,9,10))}
           </div>
           <div
             style={{
