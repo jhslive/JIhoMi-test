@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-            {console.log(phone.charAT(1,2,3))}***{console.log(phone.charAT(7,8,9))}
+            {console.log(phone.charAT(1,2,3))***console.log(phone.charAT(7,8,9,10))}
           </div>
           <div
             style={{
