@@ -37,7 +37,7 @@ function App() {
 
   const maskingPhoneNum = (PhoneNum: string => {
       return(
-        PhoneNum.substring(1, 3) +
+        PhoneNum.substring(0, 3) +
      '****' +
     PhoneNum.substring(PhoneNum.lenght -4,PhoneNum.lenght)
      );
