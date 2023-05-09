@@ -14,7 +14,6 @@ function App() {
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
   const [phone, setphone] = useState("1012341234");
-  const [phoneNum, setphoneNum] = useState('phone');
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
@@ -35,16 +34,6 @@ function App() {
     }
   }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
-  const maskingphoneNum = (phoneNum: string => {
-      return(
-        phoneNum.substring(0, 3) +
-     '****' +
-    phoneNum.substring(phoneNum.lenght -4,phoneNum.lenght)
-     );
-};
-
-console.log('maskingphoneNum.lenght - result : ', maskingphoneNum('1012345678')
-  
   function downLoad() {
     console.log("download started!");
     const name =
@@ -258,7 +247,7 @@ console.log('maskingphoneNum.lenght - result : ', maskingphoneNum('1012345678')
 
             }}
           >
-           {phoneNum}
+           {Number(phone).tostring(0, 3)}
           </div>
           <div
             style={{
