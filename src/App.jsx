@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-           {Number(phone).tostring(0, 3)}
+           {(Number(phone)).tostring(0, 3)}
           </div>
           <div
             style={{
