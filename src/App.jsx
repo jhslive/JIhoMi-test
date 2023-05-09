@@ -35,15 +35,15 @@ function App() {
     }
   }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
-  const maskingPhoneNum = (PhoneNum: string => {
+  const maskingphoneNum = (phoneNum: string => {
       return(
-        PhoneNum.substring(0, 3) +
+        phoneNum.substring(0, 3) +
      '****' +
-    PhoneNum.substring(PhoneNum.lenght -4,PhoneNum.lenght)
+    phoneNum.substring(phoneNum.lenght -4,phoneNum.lenght)
      );
 };
 
-console.log('maskingPhone.lenght - result : ', maskingPhone('1012345678')
+console.log('maskingphoneNum.lenght - result : ', maskingphoneNum('1012345678')
   
   function downLoad() {
     console.log("download started!");
