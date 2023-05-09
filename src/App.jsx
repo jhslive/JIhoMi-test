@@ -13,14 +13,13 @@ function App() {
   const [numsLoc, setNumsLoc] = useState([0, 0, 0]);
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
-  const [phone, setphone] = useState("01012341234");
+  const [phone, setphone] = useState("1012341234");
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
   const [tangu, setTangu] = useState(false);
-  const [cofo] = console.log(phone.charAt(0,1,2));
   
   useEffect(() => {
     const calculated = (
@@ -35,6 +34,16 @@ function App() {
     }
   }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
+  const maskingPhone = (phone: string => {
+      return(
+      phone.Substring(0, 3) +
+     '****' +
+    phone.substring(phone.lenght -4,phone.lenght)
+     );
+};
+
+console.log('maskingPhone.lenght - result : ', maskingPhone('1012345678')
+  
   function downLoad() {
     console.log("download started!");
     const name =
@@ -248,7 +257,7 @@ function App() {
 
             }}
           >
-           {cofo}
+           {phone}
           </div>
           <div
             style={{
