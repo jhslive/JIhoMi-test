@@ -14,6 +14,7 @@ function App() {
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
   const [phone, setphone] = useState("1012341234");
+  const [phoneNum, setphoneNum] = useState(phone);
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
@@ -34,11 +35,11 @@ function App() {
     }
   }, [entryPrice, closingPrice, coin, isLong, leverage]);
 
-  const maskingPhone = (phone: string => {
+  const maskingPhoneNum = (PhoneNum: string => {
       return(
-        phone.substring(1, 3) +
+        PhoneNum.substring(1, 3) +
      '****' +
-    phone.substring(phone.lenght -4,phone.lenght)
+    PhoneNum.substring(PhoneNum.lenght -4,PhoneNum.lenght)
      );
 };
 
