@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-           {(phone.substring(0, 3) + '****')}
+           {(phone.substring(0, 3)+'****'+phone.substring(6, 9) )}
           </div>
           <div
             style={{
