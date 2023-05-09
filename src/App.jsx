@@ -247,7 +247,7 @@ function App() {
 
             }}
           >
-           {(Number(phone)).substring(0, 3)}
+           {phone}
           </div>
           <div
             style={{
