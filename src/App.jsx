@@ -14,7 +14,7 @@ function App() {
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
   const [phone, setphone] = useState("1012341234");
-  const [phoneNum, setphoneNum] = useState(phone);
+  const [phoneNum, setphoneNum] = useState('phone');
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
@@ -258,7 +258,7 @@ console.log('maskingphoneNum.lenght - result : ', maskingphoneNum('1012345678')
 
             }}
           >
-           {phone}
+           {phoneNum}
           </div>
           <div
             style={{
