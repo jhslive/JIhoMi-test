@@ -183,7 +183,7 @@ function App() {
             style={{
               position: "absolute",
               left: "200px",
-              top: "500px",
+              top: "400px",
               fontSize: "28px",
               color: "RGB(126,126,126)",
               fontFamily: "HarmonyOS Sans",
