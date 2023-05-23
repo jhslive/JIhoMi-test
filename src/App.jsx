@@ -240,7 +240,7 @@ function App() {
               position: "absolute",
               left: "150px",
               top: "185px",
-              fontSize: "24px",
+              fontSize: "23px",
               color: "white",
               fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
