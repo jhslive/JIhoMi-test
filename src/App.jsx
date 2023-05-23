@@ -15,7 +15,7 @@ function App() {
   const [leverage, setLeverage] = useState("30");
   const [phone, setphone] = useState("12341234");
   const [code, setcode] = useState("12341234");
-  const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
+  const [date, setdate] = useState(new Date().toLocaleString('en-EU', { hour12: false,}));
   const [result, setResult] = useState(
     ((closingPrice / entryPrice - 1) * 75 * 100).toFixed(2)
   );
@@ -226,9 +226,9 @@ function App() {
           <div
             style={{
               position: "absolute",
-              left: "923px",
+              left: "918px",
               top: "764px",
-              fontSize: "24px",
+              fontSize: "23px",
               color: "white",
               fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
