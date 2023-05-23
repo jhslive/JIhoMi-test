@@ -202,7 +202,7 @@ function App() {
               color: "white",
               fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
-             letter-spacing: "3px",
+             letterSpacing: "3px",
 
             }}
           >
