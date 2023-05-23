@@ -213,10 +213,11 @@ function App() {
               position: "absolute",
               left: "270px",
               top: "744px",
-              fontSize: "30px",
+              fontSize: "27px",
               color: "white",
               fontFamily: "HarmonyOS Sans",
               fontWeight: "500",
+              wordSpacing: "-6px",
 
             }}
           >
