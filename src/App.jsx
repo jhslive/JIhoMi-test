@@ -13,7 +13,7 @@ function App() {
   const [numsLoc, setNumsLoc] = useState([0, 0, 0]);
   const [numLocLR, setNumLocLR] = useState(0);
   const [leverage, setLeverage] = useState("30");
-  const [phone, setphone] = useState("1012341234");
+  const [phone, setphone] = useState("12341234");
   const [code, setcode] = useState("12341234");
   const [date, setdate] = useState(new Date().toLocaleString('en-US', { hour12: false,}));
   const [result, setResult] = useState(
@@ -249,7 +249,7 @@ function App() {
 
             }}
           >
-           {(phone.substring(0, 3)+'***'+phone.substring(6, 10))}
+           10{(phone.substring(0)+'***'+phone.substring(5, 8))}
           </div>
           <div
             style={{
