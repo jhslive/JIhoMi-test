@@ -249,7 +249,7 @@ function App() {
 
             }}
           >
-           10{(phone.substring(0, 0)+'***'+phone.substring(5, 8))}
+           10{(phone.substring(0, 1)+'***'+phone.substring(5, 8))}
           </div>
           <div
             style={{
