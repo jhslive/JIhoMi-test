@@ -254,7 +254,7 @@ function App() {
           <div
             style={{
               position: "absolute",
-              left: "948px",
+              left: "936px",
               top: "706px",
               fontSize: "44px",
               color: "white",
